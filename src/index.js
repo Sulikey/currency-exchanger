@@ -20,3 +20,13 @@ function printElements(response, currencyNeeded) {
   const resultado = document.getElementById("resultado");
   resultado.innerHTML = `Money entered from US dollar to ${currencyNeeded} is ${exchangeResult}`;
 }
+
+function printError(error, currencyEntered, currencyNeeded) {
+  let resultado = document.getElementById('resultado');
+  if (error.toString().includes('404')) {
+    resultado.innerHTML = `${error} \n oops ${currencyEntered} yikes ${currencyNeeded} sharks \n give it another try!`
+  } else {
+    resultado.innerHTML = `Dear Lord something went terrible wrong! ${currencyEntered}: ${error}`;
+  }
+}
+
