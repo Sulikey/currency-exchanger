@@ -6,11 +6,7 @@ import "./css/styles.css";
 import CurrencyExchangerService from "./currency-service-logic";
 
 async function getRates(currencyEntered, currencyNeeded, currencyAmount) {
-  const response = await CurrencyExchangerService.getRates(
-    currencyEntered,
-    currencyNeeded,
-    currencyAmount
-  );
+  const response = await CurrencyExchangerService.getRates(currencyEntered, currencyNeeded, currencyAmount);
   if (response.conversion_result) {
     printElements(response, currencyNeeded);
   } else {
@@ -30,7 +26,7 @@ function printError(error, currencyEntered, currencyNeeded) {
   if (error.toString().includes("404")) {
     resultado.innerHTML = `${error} \n oops ${currencyEntered} yikes ${currencyNeeded} sharks \n give it another try!`;
   } else {
-    resultado.innerHTML = `Dear Lord something went terrible wrong! ${currencyEntered}: ${error}`;
+    resultado.innerHTML = `Dear Lord something went terrible wrong! ${currencyEntered}: ${error}}`;
   }
 }
 function handleFormSubmission(event) {
@@ -44,7 +40,5 @@ function handleFormSubmission(event) {
   getRates(currencyEntered, currencyNeeded, currencyAmount);
 }
 window.addEventListener("load", function () {
-  this.document
-    .getElementById("form")
-    .addEventListener("submit", handleFormSubmission);
+  this.document.getElementById("form").addEventListener("submit", handleFormSubmission);
 });
